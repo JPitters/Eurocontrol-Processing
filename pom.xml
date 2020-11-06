@@ -112,10 +112,12 @@
 					</execution>
 				</executions>
 				<configuration>
-					<schemaDirectory>${project.basedir}/src/main/aixm-5.1.1</schemaDirectory>
-						<schemaIncludes>
-							<include>*.xsd</include>
-						</schemaIncludes>
+					<schemaDirectory>${project.basedir}/src/main/aixm_xsd/aixm-5.1.1/message</schemaDirectory>
+					<schemaIncludes>
+						<include>*.xsd</include>
+					</schemaIncludes>
+					
+			        
 					<generateDirectory>${project.basedir}/src/generated</generateDirectory>
 				</configuration>
 			</plugin>
