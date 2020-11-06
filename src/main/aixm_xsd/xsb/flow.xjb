@@ -1,0 +1,52 @@
+<jaxb:bindings version="2.1" xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+               xmlns:xs="http://www.w3.org/2001/XMLSchema"
+               xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+               jaxb:extensionBindingPrefixes="xjc">
+
+  <jaxb:bindings schemaLocation="./../FlowServices_23.5.0.xsd"  node="/xs:schema">
+    <jaxb:schemaBindings>
+      <jaxb:package name="eurocontrol.cfmu.b2b.flowservices"/>
+    </jaxb:schemaBindings>
+  </jaxb:bindings>
+
+  <jaxb:bindings>
+    <jaxb:bindings schemaLocation="./../FlowServices_23.5.0.xsd">
+      <jaxb:bindings multiple="true"
+                     node=".//xs:element[@name='item']/xs:complexType/xs:sequence/xs:element[@name='value']/xs:complexType/xs:sequence/xs:element[@name='item']/xs:complexType/xs:sequence/xs:element[@name='value']/xs:complexType">
+        <jaxb:class name="InnerValue"/>
+      </jaxb:bindings>
+
+      <jaxb:bindings multiple="false"
+                     node=".//xs:element[@name='schedules']/xs:complexType/xs:sequence/xs:element[@name='item']/xs:complexType/xs:sequence/xs:element[@name='value']/xs:complexType/xs:sequence/xs:element[@name='item']/xs:complexType">
+        <jaxb:class name="InnerItem"/>
+      </jaxb:bindings>
+
+
+      <jaxb:bindings multiple="false"
+                     node=".//xs:element[@name='tvsOTMVs']/xs:complexType/xs:sequence/xs:element[@name='item']/xs:complexType/xs:sequence/xs:element[@name='value']/xs:complexType/xs:sequence/xs:element[@name='item']/xs:complexType">
+        <jaxb:class name="InnerItem"/>
+      </jaxb:bindings>
+
+      <jaxb:bindings multiple="false"
+                     node=".//xs:element[@name='counts']/xs:complexType/xs:sequence/xs:element[@name='item']/xs:complexType/xs:sequence/xs:element[@name='value']/xs:complexType/xs:sequence/xs:element[@name='item']/xs:complexType">
+        <jaxb:class name="InnerItem2"/>
+      </jaxb:bindings>
+
+      <jaxb:bindings node="//xs:element[@name='flowCounts']/xs:complexType/xs:sequence/xs:element[@name='item']">
+        <jaxb:property generateIsSetMethod="true"/>
+      </jaxb:bindings>
+
+      <jaxb:bindings node="//xs:element[@name='subTotalsCounts']/xs:complexType/xs:sequence/xs:element[@name='item']">
+        <jaxb:property generateIsSetMethod="true"/>
+      </jaxb:bindings>
+
+      <jaxb:bindings node=".//xs:element[@name='countsChanges']/xs:complexType/xs:sequence/xs:element[@name='item']/xs:complexType/xs:sequence/xs:element[@name='value']/xs:complexType/xs:sequence/xs:element[@name='item']/xs:complexType">
+        <jaxb:class name="Item4"/>
+      </jaxb:bindings>
+
+      <jaxb:bindings node=".//xs:element[@name='countsChanges']/xs:complexType//xs:sequence/xs:element[@name='item']/xs:complexType/xs:sequence/xs:element[@name='value']/xs:complexType/xs:sequence/xs:element[@name='item']/xs:complexType/xs:sequence/xs:element[@name='value']/xs:complexType/xs:sequence/xs:element[@name='item']/xs:complexType">
+        <jaxb:class name="Item5"/>
+      </jaxb:bindings>
+    </jaxb:bindings>
+  </jaxb:bindings>
+</jaxb:bindings>

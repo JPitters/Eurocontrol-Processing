@@ -1,0 +1,238 @@
+<!-- JAXB customizations required for the GML 3.2.0 name collisions
+     This file is written as a template so that the WSDL_DIR can be replaced at build time by the relevant value. Note that this
+     substitution is mandatory since jaxb does not handle correctly the cannonical pathes. -->
+<jxb:bindings version="2.0"
+              xmlns:jxb="http://java.sun.com/xml/ns/jaxb"
+              xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <!-- v5.1.1 -->
+  <jxb:bindings schemaLocation="./../aixm-5.1.1/gml/3.2.1/geometryPrimitives.xsd">
+    <jxb:bindings node=".//xs:attribute[@name='rows']">
+      <jxb:property name="numrows"/>
+    </jxb:bindings>
+    <jxb:bindings node=".//xs:complexType[@name='ArcType']">
+      <jxb:class name="GeoArcType"/>
+    </jxb:bindings>
+    <jxb:bindings node=".//xs:element[@name='Arc']">
+      <jxb:class name="GeoArc"/>
+    </jxb:bindings>
+  </jxb:bindings>
+
+  <jxb:bindings schemaLocation="./../aixm-5.1.1/gml/3.2.1/gmlBase.xsd" node=".//xs:element[@name='AbstractObject']">
+    <jxb:class name="GmlAbstractObject"/>
+  </jxb:bindings>
+
+  <jxb:bindings schemaLocation="./../aixm-5.1.1/gml/3.2.1/grids.xsd" node=".//xs:complexType[@name='GridType']/xs:complexContent/xs:extension/xs:sequence/xs:choice/xs:element[@name='axisLabels']">
+    <jxb:property name="gridAxisLabels"/>
+  </jxb:bindings>
+
+  <!-- Resolve collision between SecondDefiningParameter and secondDefiningParameter -->
+  <jxb:bindings schemaLocation="./../aixm-5.1.1/gml/3.2.1/datums.xsd">
+    <jxb:bindings node=".//xs:element[@name='SecondDefiningParameter']">
+      <jxb:class name="SecondDefiningParameterType"/>
+    </jxb:bindings>
+    <jxb:bindings node=".//xs:element[@name='primeMeridian']">
+      <jxb:class name="PrimeMeridianProperty"/>
+    </jxb:bindings>
+    <jxb:bindings node=".//xs:element[@name='ellipsoid']">
+      <jxb:class name="EllipsoidProperty"/>
+    </jxb:bindings>
+  </jxb:bindings>
+
+  <jxb:bindings schemaLocation="./../aixm-5.1.1/gml/3.2.1/valueObjects.xsd">
+    <jxb:bindings node=".//xs:complexType[@name='BooleanPropertyType']">
+      <jxb:class name="VOBooleanPropertyType"/>
+    </jxb:bindings>
+    <jxb:bindings node=".//xs:element[@name='Boolean']">
+      <jxb:class name="VOBoolean"/>
+    </jxb:bindings>
+  </jxb:bindings>
+
+  <jxb:bindings schemaLocation="./../aixm-5.1.1/gml/3.2.1/coordinateOperations.xsd">
+    <jxb:bindings  node=".//xs:element[@name='operationParameter']">
+      <jxb:class name="OperationParameterProperty"/>
+    </jxb:bindings>
+    <jxb:bindings node=".//xs:element[@name='parameterValue']">
+      <jxb:class name="ParameterValueProperty"/>
+    </jxb:bindings>
+  </jxb:bindings>
+
+  <jxb:bindings schemaLocation="./../aixm-5.1.1/gml/3.2.1/coordinateReferenceSystems.xsd">
+    <jxb:bindings node=".//xs:element[@name='geodeticDatum']">
+      <jxb:class name="GeodeticDatumProperty"/>
+    </jxb:bindings>
+    <jxb:bindings node=".//xs:element[@name='linearCS']">
+      <jxb:class name="clinearCS"/>
+    </jxb:bindings>
+    <jxb:bindings node=".//xs:element[@name='polarCS']">
+      <jxb:class name="cpolarCS"/>
+    </jxb:bindings>
+    <jxb:bindings node=".//xs:element[@name='userDefinedCS']">
+      <jxb:class name="cuserDefinedCS"/>
+    </jxb:bindings>
+    <jxb:bindings node=".//xs:element[@name='cylindricalCS']">
+      <jxb:class name="ccylindricalCS"/>
+    </jxb:bindings>
+    <jxb:bindings node=".//xs:element[@name='affineCS']">
+      <jxb:class name="AffineCSProperty"/>
+    </jxb:bindings>
+    <jxb:bindings node=".//xs:element[@name='engineeringDatum']">
+      <jxb:class name="EngineeringDatumProperty"/>
+    </jxb:bindings>
+    <jxb:bindings node=".//xs:element[@name='sphericalCS']">
+      <jxb:class name="SphericalCSProperty"/>
+    </jxb:bindings>
+    <jxb:bindings node=".//xs:element[@name='temporalDatum']">
+      <jxb:class name="TemporalDatumProperty"/>
+    </jxb:bindings>
+    <jxb:bindings node=".//xs:element[@name='verticalDatum']">
+      <jxb:class name="VVerticalDatumProperty"/>
+    </jxb:bindings>
+    <jxb:bindings node=".//xs:element[@name='ellipsoidalCS']">
+      <jxb:class name="EllipsoidalCSProperty"/>
+    </jxb:bindings>
+    <jxb:bindings node=".//xs:element[@name='verticalCS']">
+      <jxb:class name="VerticalCSProperty"/>
+    </jxb:bindings>
+    <jxb:bindings node=".//xs:element[@name='cartesianCS']">
+      <jxb:class name="CartesianCSProperty"/>
+    </jxb:bindings>
+    <jxb:bindings node=".//xs:element[@name='imageDatum']">
+      <jxb:class name="ImageDatumProperty"/>
+    </jxb:bindings>
+    <jxb:bindings node=".//xs:element[@name='conversion']">
+      <jxb:class name="ConversionProperty"/>
+    </jxb:bindings>
+    <jxb:bindings node=".//xs:element[@name='timeCS']">
+      <jxb:class name="TimeCSProperty"/>
+    </jxb:bindings>
+  </jxb:bindings>
+
+  <jxb:bindings schemaLocation="./../aixm-5.1.1/gml/3.2.1/measures.xsd">
+    <jxb:bindings node=".//xs:element[@name='angle']">
+      <jxb:class name="mangle"/>
+    </jxb:bindings>
+    <jxb:bindings node=".//xs:element[@name='measure']">
+      <jxb:class name="mmeasure"/>
+    </jxb:bindings>
+  </jxb:bindings>
+
+  <jxb:bindings schemaLocation="./../aixm-5.1.1/AIXM_DataTypes.xsd">
+    <!-- Resolve collision between the complex type 'TimeType' defined in ./ISO_19136_Schemas/measures.xsd
+         and the one defined in AIXM_DataTypes.xsd -->
+    <jxb:bindings node=".//xs:complexType[@name='TimeType']">
+      <jxb:class name="AixmTimeType"/>
+    </jxb:bindings>
+  </jxb:bindings>
+
+  <jxb:bindings schemaLocation="./../aixm-5.1.1/AIXM_Features.xsd">
+    <jxb:bindings node="/xs:schema">
+      <jxb:schemaBindings>
+        <jxb:package name="aixm.v5_1_1"/>
+      </jxb:schemaBindings>
+    </jxb:bindings>
+    <jxb:bindings node=".//xs:group[@name='AeronauticalGroundLightPropertyGroup']/xs:sequence/xs:element[@name='name']">
+      <jxb:property name="aeronauticalGroundLightName"/>
+    </jxb:bindings>
+    <jxb:bindings node=".//xs:complexType[@name='CurveType']">
+      <jxb:class name="AixmCurveType"/>
+    </jxb:bindings>
+    <jxb:bindings node=".//xs:element[@name='altitudeAdjustmentType']">
+      <jxb:class name="AltAdjustmentType"/>
+    </jxb:bindings>
+    <jxb:bindings node=".//xs:complexType[@name='SurfaceType']">
+      <jxb:class name="AixmSurfaceType"/>
+    </jxb:bindings>
+    <jxb:bindings node=".//xs:complexType[@name='PointType']">
+      <jxb:class name="AixmPointType"/>
+    </jxb:bindings>
+    <jxb:bindings node=".//xs:complexType[@name='ProcedurePropertyType']">
+      <jxb:class name="AixmProcedurePropertyType"/>
+    </jxb:bindings>
+    <jxb:bindings node=".//xs:complexType[@name='AirspaceType']">
+      <jxb:class name="AixmAirspaceType"/>
+    </jxb:bindings>
+    <jxb:bindings node=".//xs:complexType[@name='PointPropertyType']">
+      <jxb:class name="AixmPointPropertyType"/>
+    </jxb:bindings>
+    <jxb:bindings node=".//xs:complexType[@name='CurvePropertyType']">
+      <jxb:class name="AixmCurvePropertyType"/>
+    </jxb:bindings>
+    <jxb:bindings node=".//xs:complexType[@name='SurfacePropertyType']">
+      <jxb:class name="AixmSurfacePropertyType"/>
+    </jxb:bindings>
+    <jxb:bindings node=".//xs:element[@name='Curve']">
+      <jxb:class name="AixmCurve"/>
+    </jxb:bindings>
+    <jxb:bindings node=".//xs:element[@name='Surface']">
+      <jxb:class name="AixmSurface"/>
+    </jxb:bindings>
+    <jxb:bindings node=".//xs:element[@name='Point']">
+      <jxb:class name="AixmPoint"/>
+    </jxb:bindings>
+    <jxb:bindings node=".//xs:group[@name='ApronPropertyGroup']/xs:sequence/xs:element[@name='name']">
+      <jxb:property name="apronName"/>
+    </jxb:bindings>
+    <jxb:bindings node=".//xs:group[@name='CityPropertyGroup']/xs:sequence/xs:element[@name='name']">
+      <jxb:property name="cityName"/>
+    </jxb:bindings>
+    <jxb:bindings node=".//xs:group[@name='AirportHeliportPropertyGroup']/xs:sequence/xs:element[@name='name']">
+      <jxb:property name="heliportName"/>
+    </jxb:bindings>
+    <jxb:bindings node=".//xs:group[@name='AirspacePropertyGroup']/xs:sequence/xs:element[@name='name']">
+      <jxb:property name="airspaceName"/>
+    </jxb:bindings>
+    <jxb:bindings node=".//xs:group[@name='GeoBorderPropertyGroup']/xs:sequence/xs:element[@name='name']">
+      <jxb:property name="geoBorderName"/>
+    </jxb:bindings>
+    <jxb:bindings node=".//xs:group[@name='RadarEquipmentPropertyGroup']/xs:sequence/xs:element[@name='name']">
+      <jxb:property name="radarEquipmentName"/>
+    </jxb:bindings>
+    <jxb:bindings node=".//xs:group[@name='StandardLevelTablePropertyGroup']/xs:sequence/xs:element[@name='name']">
+      <jxb:property name="standardLevelTableName"/>
+    </jxb:bindings>
+    <jxb:bindings node=".//xs:group[@name='ContactInformationPropertyGroup']/xs:sequence/xs:element[@name='name']">
+      <jxb:property name="contactInformationName"/>
+    </jxb:bindings>
+    <jxb:bindings node=".//xs:group[@name='ServicePropertyGroup']/xs:sequence/xs:element[@name='name']">
+      <jxb:property name="serviceName"/>
+    </jxb:bindings>
+    <jxb:bindings node=".//xs:group[@name='NavaidPropertyGroup']/xs:sequence/xs:element[@name='name']">
+      <jxb:property name="navaidName"/>
+    </jxb:bindings>
+    <jxb:bindings node=".//xs:group[@name='NavaidEquipmentPropertyGroup']/xs:sequence/xs:element[@name='name']">
+      <jxb:property name="navaidEquipmentName"/>
+    </jxb:bindings>
+    <jxb:bindings node=".//xs:group[@name='SpecialNavigationStationPropertyGroup']/xs:sequence/xs:element[@name='name']">
+      <jxb:property name="specialNavigationStationName"/>
+    </jxb:bindings>
+    <jxb:bindings node=".//xs:group[@name='SpecialNavigationSystemPropertyGroup']/xs:sequence/xs:element[@name='name']">
+      <jxb:property name="specialNavigationSystemName"/>
+    </jxb:bindings>
+    <jxb:bindings node=".//xs:group[@name='DesignatedPointPropertyGroup']/xs:sequence/xs:element[@name='name']">
+      <jxb:property name="designatedPointName"/>
+    </jxb:bindings>
+    <jxb:bindings node=".//xs:group[@name='OrganisationAuthorityPropertyGroup']/xs:sequence/xs:element[@name='name']">
+      <jxb:property name="organisationAuthorityName"/>
+    </jxb:bindings>
+    <jxb:bindings node=".//xs:group[@name='ProcedurePropertyGroup']/xs:sequence/xs:element[@name='name']">
+      <jxb:property name="procedureName"/>
+    </jxb:bindings>
+    <jxb:bindings node=".//xs:group[@name='VerticalStructurePropertyGroup']/xs:sequence/xs:element[@name='name']">
+      <jxb:property name="verticalStructureName"/>
+    </jxb:bindings>
+    <jxb:bindings node=".//xs:group[@name='UnitPropertyGroup']/xs:sequence/xs:element[@name='name']">
+      <jxb:property name="unitName"/>
+    </jxb:bindings>
+  </jxb:bindings>
+
+  <jxb:bindings schemaLocation="./../xlink/xlink.xsd">
+    <jxb:bindings node=".//xs:group[@name='locatorModel']/xs:sequence/xs:element[@ref='xlink:title']">
+      <jxb:property name="locatorTitle"/>
+    </jxb:bindings>
+    <jxb:bindings node=".//xs:group[@name='arcModel']/xs:sequence/xs:element[@ref='xlink:title']">
+      <jxb:property name="arcTitle"/>
+    </jxb:bindings>
+  </jxb:bindings>
+
+</jxb:bindings>
