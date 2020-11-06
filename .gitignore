@@ -1,4 +1,10 @@
 target/
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
 pom.xml.tag
 pom.xml.releaseBackup
 pom.xml.versionsBackup

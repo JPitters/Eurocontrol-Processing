@@ -38,13 +38,13 @@ public class EurocontrolApplication extends RouteBuilder  {
 	@Autowired
 	AIXMDataToJava msgSplitter;
 	
-	@Value("${tfms.filepath}")
+	@Value("${ectl.filepath}")
 	private String jumpStartLogFilesPath;
 
-	@Value("${tfms.pollmsec:100000}")
+	@Value("${ectl.pollmsec:100000}")
 	private BigInteger pollDelayMilliSeconds;
 
-	@Value("${tfms.deletefiles:true}")
+	@Value("${ectl.deletefiles:true}")
 	private Boolean deleteOnRead;
 	
 	@Override
