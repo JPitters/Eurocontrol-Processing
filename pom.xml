@@ -112,6 +112,11 @@
 					</execution>
 				</executions>
 				<configuration>
+					<bindingDirectory>${project.basedir}/src/main/aixm_xsd/xsb</bindingDirectory>
+					<bindingIncludes>
+            			<include>aixm-bindings.xjb</include>
+			        </bindingIncludes>
+					
 					<schemaDirectory>${project.basedir}/src/main/aixm_xsd/aixm-5.1.1/message</schemaDirectory>
 					<schemaIncludes>
 						<include>*.xsd</include>
