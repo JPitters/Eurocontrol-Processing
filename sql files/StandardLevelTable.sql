@@ -1,11 +1,13 @@
 
-CREATE TABLE AirportHeliportCollocation
+
+CREATE TABLE StandardLevelColumnTimeSlice
 (
   gmlIdentifier     VARCHAR(70) NOT NULL PRIMARY KEY,
-  codeSpace			VARCHAR(10),
+  codeSpace        	VARCHAR(20),
   validTimeBegin 	DateType,
   validTimeEnd 		DateType,
   interpretation 	TimesliceInterpretationType,
-  hostAirport       VARCHAR(70),
-  dependentAirport  VARCHAR(70)
+  series        	VARCHAR(70),
+  standardICAO    	VARCHAR(10),
 );
+

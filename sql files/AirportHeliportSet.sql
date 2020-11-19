@@ -32,3 +32,12 @@ CREATE TABLE AirportHeliportSetPattern
   id             INTEGER PRIMARY KEY DEFAULT nextval('auto_id_point'),
   pattern        VARCHAR(5)
 );
+
+CREATE TABLE AirportHeliportSet_AirportHeliportPattern
+(
+  set_pk     	uuid REFERENCES AirportHeliportSet (gmlIdentifier) ON UPDATE CASCADE,
+  setPattern_pk     INTEGER DEFAULT nextval('auto_id_point'),
+  pattern        VARCHAR(5)
+  CONSTRAINT set_setPattern_pk    PRIMARY KEY (set_pk, setPattern_pk)
+);
+

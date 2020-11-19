@@ -159,6 +159,12 @@ CREATE TABLE NavaidTimeSlice_AnnotationNote
   CONSTRAINT navaid_annotation_pk    PRIMARY KEY (navaid_pk, annotation_pk)
 );
 
+CREATE TABLE AirspaceBorderCrossingObject
+(
+  id                INTEGER PRIMARY KEY DEFAULT nextval('auto_id_point'),
+  enteredAirspace      VARCHAR(60),
+  exitedAirspace      VARCHAR(60)
+);
 
 CREATE TABLE PointUsage
 (
@@ -169,11 +175,11 @@ CREATE TABLE PointUsage
   endTime        		TIME,
   validTimeBegin        DateType,
   validTimeEnd        	DateType,
-  role        		VARCHAR(30),
-  refernceBorder  	VARCHAR(50),
-  refernceAirspace  VARCHAR(50),
-  refernceAirportHeliport  VARCHAR(50),
-  refernceAirportHeliportSet  VARCHAR(50)
+  role        			VARCHAR(30),
+  refernceAirspace  	VARCHAR(60),
+  refernceAirportHeliport  VARCHAR(60),
+  refernceAirportHeliportSet  VARCHAR(60),
+  refernceBorderID  	INTEGER REFERENCES AirspaceBorderCrossingObject (id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE NavaidTimeSlice_PointUsage
