@@ -57,6 +57,17 @@ CREATE TABLE TimeSlice
   correctionNumber NoNumberType
 );
 
+CREATE TABLE TimeInterval
+(
+  id INTEGER PRIMARY KEY DEFAULT nextval('auto_id_timeslice'),
+  timeReference        	VARCHAR(30),
+  day        			VARCHAR(30),
+  startTime        		TIME,
+  endTime        		TIME,
+  validTimeBegin        DateType,
+  validTimeEnd        	DateType,
+);
+
 CREATE DOMAIN TextNameType AS VARCHAR(60);
 
 CREATE DOMAIN CodeNavaidServiceType AS VARCHAR(40)

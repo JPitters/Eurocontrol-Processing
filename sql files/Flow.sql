@@ -23,8 +23,8 @@ CREATE TABLE FlowLocationElement
 
 CREATE TABLE Flow_FlowLocationElement
 (
-  flow_pk     	uuid REFERENCES FlowTimeSlice (gmlIdentifier) ON UPDATE CASCADE,
-  flowLocationElement_pk     INTEGER REFERENCES FlowLocationElement (id) ON UPDATE CASCADE,
-  pattern        VARCHAR(5)
+  flow_pk     				uuid REFERENCES FlowTimeSlice (gmlIdentifier) ON UPDATE CASCADE,
+  flowLocationElement_pk    INTEGER REFERENCES FlowLocationElement (id) ON UPDATE CASCADE,
+  pattern        			VARCHAR(10),
   CONSTRAINT flow_flowLocationElement_pk    PRIMARY KEY (flow_pk, flowLocationElement_pk)
 );
